@@ -1,7 +1,12 @@
-.expenses {
-    padding: 1rem;
-    background-color: rgba(var(--foreground), 0.15);
-    margin: 2rem auto;
-    width: 50rem;
-    max-width: 95%;
+.expenses-list {
+    list-style: none;
+    padding: 0;
+}
+
+.expense-list > li {
+    list-style: none;
+}
+
+.expenses-list__fallback {
+    text-align: center;
 }

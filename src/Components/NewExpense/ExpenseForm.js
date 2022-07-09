@@ -56,7 +56,8 @@ function ExpenseForm(props) {
     }
 
     function submitHandler(event) {
-        event.preventDefault(); //when onSubmit is in form is triggered by default it reload the page.
+        //when onSubmit is in form is triggered by default it reload the page.
+        event.preventDefault(); 
         
         const expenseData = {
             ...form,
@@ -69,8 +70,6 @@ function ExpenseForm(props) {
             amount: '',
             date: ''
         });
-
-        // console.log(expenseData);
     }
 
     return (
@@ -79,17 +78,33 @@ function ExpenseForm(props) {
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label> Title</label>
-                    <input type="text" required onChange={titleChangeHandler} value={form.title}/>
+                    <input type="text"
+                        required
+                        onChange={titleChangeHandler}
+                        value={form.title} 
+                    />
                 </div>
                 <div className="new-expense__control">
                     <label htmlFor=""> Amount </label>
-                    <input type="number" required min="1" step="1" onChange={amountChangeHandler} value={form.amount}/>
+                    <input type="number"
+                        required
+                        min="1"
+                        step="1"
+                        onChange={amountChangeHandler}
+                        value={form.amount}
+                    />
                 </div>
                 <div className="new-expense__control">
                     <label htmlFor=""> Date </label>
-                    <input type="date" required min="2020-06-03" max="2024-06-03" onChange={dateChangeHandler} value={form.date}/>
+                    <input type="date"
+                        required min="2020-06-03"
+                        max="2024-06-03"
+                        onChange={dateChangeHandler}
+                        value={form.date} 
+                    />
                 </div>
                 <div className="new-expense__actions">
+                    <button onClick={props.onCancel}> Cancel </button>
                     <button type="submit"> Add Expense </button>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import './App.css';
-import ExpenseList from "./Components/Expenses/ExpenseList";
+import Expenses from "./Components/Expenses/Expenses";
 import NewExpense from "./Components/NewExpense/NewExpense";
 
 import { useState } from "react";
@@ -29,28 +29,18 @@ const DEFAUTL_YEAR = 2022;
 
 function App() {
 	const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
-    const [filterExpenses, setFilterExpenses] = useState(
-        DUMMY_EXPENSES.filter(expense => expense.date.getFullYear() === DEFAUTL_YEAR)
-    );
 
-    console.log(filterExpenses);
-
+    // append expenses array
 	function appendExpenseDataHandler(expenseData) {
 		setExpenses((prevState) => [expenseData, ...prevState]);
 	}
 
-    // handlers filter array
-    function filterArrayHandler(filterYear) {
-        setFilterExpenses(expenses.filter(expense => expense.date.getFullYear() === filterYear));
-    }
-
 	return (
 		<div>
 			<NewExpense onPullExpenseData={appendExpenseDataHandler} />
-            <ExpenseList
-                expenses={filterExpenses}
+            <Expenses
+                expenses={expenses}
                 onSelectedYear={DEFAUTL_YEAR}
-                onFilterExpenseList={filterArrayHandler}
             />
 		</div>
 	);
