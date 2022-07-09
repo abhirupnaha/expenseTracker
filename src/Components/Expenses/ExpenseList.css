@@ -9,4 +9,5 @@
 
 .expenses-list__fallback {
     text-align: center;
+    padding-top: 1em;
 }
